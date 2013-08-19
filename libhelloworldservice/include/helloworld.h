@@ -1,7 +1,7 @@
 #ifndef _HELLOWORLD_H_
 #define _HELLOWORLD_H_
 
-#define HELLOWORLD_NAME "org.intel.vpg.tli21.helloworld"
+#define HELLOWORLD_NAME "org.tli21.helloworld"
 
 #include "android-IInterface.h"
 
