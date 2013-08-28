@@ -73,7 +73,7 @@ public class HelloWorld extends Activity {
             Log.e("HelloWorld", "services["+i+"]="+ services[i]);
         }
 
-        IBinder helloworld = ServiceManager.getService("org.credil.helloworldservice.HelloWorldServiceInterface");
+        IBinder helloworld = ServiceManager.getService("org.tli21.helloworld");
         if(helloworld != null) {
             Log.e(LOG_TAG, "hello "+helloworld.toString());
         } else {
