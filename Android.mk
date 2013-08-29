@@ -4,7 +4,7 @@ include $(CLEAR_VARS)
 #LOCAL_MODULE_TAGS := user
 
 LOCAL_SRC_FILES := $(call all-java-files-under, src) \
-	src/org/credil/helloworldservice/HelloWorldServiceInterface.aidl
+	src/org/tli21/helloworld.aidl
 
 LOCAL_PACKAGE_NAME := HelloWorldService
 

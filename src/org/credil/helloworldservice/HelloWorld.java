@@ -1,6 +1,7 @@
 package org.credil.helloworldservice;
 
 import org.credil.helloworldservice.R;
+import org.tli21.helloworld;
 import android.app.Activity;
 import android.content.Context;
 import android.content.ComponentName;
@@ -20,6 +21,7 @@ public class HelloWorld extends Activity {
     /* public HelloWorldServiceInterface hws; */
     public TextView helloBox;
     public ServiceConnection serviceConnection;
+    public String string = "I am from java client";
 
     /** Called when the activity is first created. */
     @Override
@@ -29,7 +31,7 @@ public class HelloWorld extends Activity {
 
         helloBox = (TextView)findViewById(R.id.HelloView01);
         helloBox.setText("start");
-
+        
         /*
         serviceConnection = new ServiceConnection() {
             public void onServiceConnected(ComponentName name, IBinder service) {
@@ -48,7 +50,7 @@ public class HelloWorld extends Activity {
                 hws = null;
             }
         };
-
+        /*
         // I think it should really be:
         //bindService(ServiceManager.getService("org.credilk..."),
         //            serviceConnection, ???):
@@ -73,9 +75,16 @@ public class HelloWorld extends Activity {
             Log.e("HelloWorld", "services["+i+"]="+ services[i]);
         }
 
-        IBinder helloworld = ServiceManager.getService("org.tli21.helloworld");
-        if(helloworld != null) {
-            Log.e(LOG_TAG, "hello "+helloworld.toString());
+        IBinder helloworld_s = ServiceManager.getService("org.tli21.helloworld");
+        if(helloworld_s != null) {
+            Log.e(LOG_TAG, "hello "+helloworld_s.toString());
+            helloworld hws = helloworld.Stub.asInterface(helloworld_s);
+            try {
+                hws.hellothere(string);
+            } catch (RemoteException e)
+            {
+                Log.e("HelloWorld", "Error");
+            }
         } else {
             Log.e(LOG_TAG, "hello service not found ");
         }
